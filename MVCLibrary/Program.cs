@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+﻿var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -17,6 +17,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// ✅ Custom middleware – logira svaki request
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"[LOG] Request: {context.Request.Method} {context.Request.Path}");
+    await next.Invoke();
+    Console.WriteLine($"[LOG] Response: {context.Response.StatusCode}");
+});
 
 app.UseAuthorization();
 
