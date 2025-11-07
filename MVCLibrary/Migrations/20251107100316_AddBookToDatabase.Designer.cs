@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCLibrary.Migrations
 {
     [DbContext(typeof(MVCLibraryContext))]
-    [Migration("20251106172210_AddBookToDatabase")]
+    [Migration("20251107100316_AddBookToDatabase")]
     partial class AddBookToDatabase
     {
         /// <inheritdoc />
